@@ -1,0 +1,47 @@
+plugins {
+    id 'org.springframework.boot' version '2.3.1.RELEASE'
+    id 'io.spring.dependency-management' version '1.0.9.RELEASE'
+    id 'java'
+    id 'idea'
+    id 'eclipse'
+}
+
+group = 'com.gru'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '14'
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-mustache'
+//    implementation 'org.mybatis.spring.boot:mybatis-spring-boot-starter:2.1.3'
+    implementation 'eu.bitwalker:UserAgentUtils:1.21'
+
+    implementation 'org.apache.poi:poi:4.1.2'
+   
+    implementation 'org.apache.poi:poi-ooxml:4.1.2'
+    implementation 'org.jxls:jxls:2.8.1'
+    implementation 'org.jxls:jxls-poi:2.8.1'
+    compileOnly 'org.projectlombok:lombok'
+    developmentOnly 'org.springframework.boot:spring-boot-devtools'
+//    runtimeOnly 'org.postgresql:postgresql'
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    annotationProcessor 'org.projectlombok:lombok'
+    testImplementation 'org.apache.httpcomponents:httpclient'
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
